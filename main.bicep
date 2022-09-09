@@ -26,6 +26,7 @@ module vnetMDL 'Modules/network.bicep' = {
     date: dateNow
     email: emailFile
     service: serviceFile
+    natGW: natGWMDL.outputs.natGW
   }
 }
 
@@ -46,9 +47,6 @@ module bstMDL 'Modules/bastion.bicep' = {
 
 module natGWMDL 'Modules/natGateway.bicep' = {
   name: 'natgw-deploy'
-  dependsOn: [
-    vnetMDL
-  ]
   params: {
     vnetName: vnetNameFile
     location: locationFile

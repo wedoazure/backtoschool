@@ -4,6 +4,7 @@ param vnetAddress string
 param date string 
 param email string
 param service string
+param natGW string
 
 var firstOutput = split(vnetAddress, '.' )
 var mask1 = firstOutput[0]
@@ -12,6 +13,7 @@ var mask2 = firstOutput[1]
 var sub1 = '${mask1}.${mask2}.250.0/26'
 var sub2 = '${mask1}.${mask2}.1.0/24'
 var sub3 = '${mask1}.${mask2}.255.0/24'
+var sub4 = '${mask1}.${mask2}.254.0/24'
 
 
 resource rtDefault 'Microsoft.Network/routeTables@2021-02-01' = {
@@ -71,6 +73,13 @@ resource virtualNetwork 'Microsoft.Network/virtualNetworks@2021-02-01' = {
         name: 'RouteServerSubnet'
         properties: {
           addressPrefix: sub1
+        }
+      }
+      {
+        name: 'OutboundSubnet'
+        properties: {
+          addressPrefix: sub4
+          natGateway: natGW
         }
       }
     ]

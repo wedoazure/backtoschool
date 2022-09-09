@@ -44,3 +44,6 @@ resource ngw 'Microsoft.Network/natGateways@2022-01-01' = {
     idleTimeoutInMinutes: 4
   }
 }
+
+
+output natGW string = ngw.id
