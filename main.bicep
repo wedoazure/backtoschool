@@ -69,5 +69,6 @@ module rteSrvMDL 'Modules/routeServer.bicep' = {
     date: dateNow
     email: emailFile
     service: serviceFile
+    vnet: vnetMDL.outputs.net
   }
 }
