@@ -7,7 +7,7 @@ param service string
 
 var bstPIPName = '${vnetName}-bst-pip'
 var bstName = '${vnetName}-bst'
-
+var snetId = '${vnet}/subnets/AzureBastionSubnet'
 
 resource bstPIP 'Microsoft.Network/publicIPAddresses@2021-03-01' = {
   name: bstPIPName
@@ -42,7 +42,7 @@ resource azureBastion 'Microsoft.Network/bastionHosts@2021-02-01' = {
              id: bstPIP.id
            }
            subnet: {
-             id: '${vnet}/subnets/AzureBastionSubnet'
+             id: snetId
            }
          }
        }
