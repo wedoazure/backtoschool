@@ -69,6 +69,7 @@ module natGWMDL 'Modules/natGateway.bicep' = {
     date: dateNow
     email: emailFile
     vnet: vnetMDL.outputs.net
+    service: serviceFile
   }
 }
 
