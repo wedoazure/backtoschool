@@ -58,7 +58,7 @@ module natGWMDL 'Modules/natGateway.bicep' = {
   }
 }
 
-/*module rteSrvMDL 'Modules/routeServer.bicep' = {
+module rteSrvMDL 'Modules/routeServer.bicep' = {
   name: 'rte-srv-deploy'
   dependsOn: [
     vnetMDL
@@ -68,10 +68,6 @@ module natGWMDL 'Modules/natGateway.bicep' = {
     location: locationFile
     date: dateNow
     email: emailFile
-    vnet: vnetMDL.outputs.net
     service: serviceFile
   }
 }
-
-
-*/

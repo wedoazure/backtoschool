@@ -5,9 +5,9 @@ param email string
 param service string
 
 var rtrName = '${vnetName}-rtr'
-var asn = 65000
+//var asn = 65000
 
-resource rteSrv 'Microsoft.Network/virtualRouters@2022-01-01' = {
+resource rtSrv 'Microsoft.Network/virtualHubs@2022-01-01' = {
   name: rtrName
   location: location
   tags: {
@@ -16,15 +16,6 @@ resource rteSrv 'Microsoft.Network/virtualRouters@2022-01-01' = {
     Service: service
   }
   properties: {
-    hostedGateway: {
-      id: 'string'
-    }
-    hostedSubnet: {
-      id: 'string'
-    }
-    virtualRouterAsn: asn
-    virtualRouterIps: [
-      'string'
-    ]
+    sku: 'Standard'
   }
 }

@@ -31,12 +31,16 @@ resource ngw 'Microsoft.Network/natGateways@2022-01-01' = {
     Owner: email
     Service: service
   }
+  sku: {
+      name: 'Standard'
+    }
   properties: {
     publicIpAddresses: [
       {
         id: ngwPIP.id
       }
     ]
+    
     idleTimeoutInMinutes: 4
   }
 }
