@@ -7,7 +7,7 @@ param vnet string
 
 var rtrName = '${vnetName}-rtr'
 var rtrPIPName = '${vnetName}-rtr-pip'
-var snetId = '${vnet}/subnets/AzureRouteServer'
+var snetId = '${vnet}/subnets/RouteServerSubnet'
 
 //var asn = 65000
 
