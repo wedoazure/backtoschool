@@ -1,7 +1,8 @@
 # Pipeline validates Bicep template with test kit
 # If that passes, enters deploy stage
 
-trigger: *
+trigger:
+- main
 
 pool:
   vmImage: windows-latest
