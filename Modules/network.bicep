@@ -79,7 +79,9 @@ resource virtualNetwork 'Microsoft.Network/virtualNetworks@2021-02-01' = {
         name: 'OutboundSubnet'
         properties: {
           addressPrefix: sub4
-          natGateway: natGW
+          natGateway: {
+          id: natGW
+          }
         }
       }
     ]
