@@ -1,7 +1,8 @@
 # Pipeline validates Bicep template with test kit
 # If that passes, enters deploy stage
 
-trigger: *
+trigger:
+- main
 
 pool:
   vmImage: windows-latest
@@ -31,7 +32,7 @@ stages:
         steps:
           - task: AzurePowerShell@5
             inputs:
-              azureSubscription: 'Microsoft Azure Sponsorship(250d49e3-87b6-436c-a750-d4e29311dfbe)'
+              azureSubscription: 'Microsoft Azure Sponsorship(1)(250d49e3-87b6-436c-a750-d4e29311dfbe)'
               ScriptType: 'InlineScript'
               Inline: 'New-AzResourceGroupDeployment -Name B2S-Deploy -ResourceGroupName rg_b2s -TemplateFile ".\main.bicep" -TemplateParameterFile ".\main.parameters.json"'
               FailOnStandardError: true
