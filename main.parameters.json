@@ -8,7 +8,7 @@
         "emailFile":{
             "value": "backtoschool@wedoazure.com"
         },
-        "service":{ 
+        "serviceFile":{ 
             "value": "backtoschool"
         },
         "vnetNameFile": {
