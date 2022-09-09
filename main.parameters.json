@@ -1,0 +1,25 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "locationFile":{
+            "value": "northeurope"
+        },
+        "emailFile":{
+            "value": "backtoschool@wedoazure.com"
+        },
+        "service":{ 
+            "value": "backtoschool"
+        },
+        "vnetNameFile": {
+            "value": "b2s-vnet-ne"
+        },
+        "vnetAddressPrefixFile": {
+            "value": "10.55.0.0/16"
+        },
+        "monNameFile": {
+            "value": "b2smon2022"
+        }
+
+    }
+}
