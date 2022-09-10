@@ -14,6 +14,7 @@ var sub1 = '${mask1}.${mask2}.250.0/26'
 var sub2 = '${mask1}.${mask2}.1.0/24'
 var sub3 = '${mask1}.${mask2}.255.0/24'
 var sub4 = '${mask1}.${mask2}.254.0/24'
+var sub5 = '${mask1}.${mask2}.123.0/24'
 
 
 resource rtDefault 'Microsoft.Network/routeTables@2021-02-01' = {
@@ -84,9 +85,27 @@ resource virtualNetwork 'Microsoft.Network/virtualNetworks@2021-02-01' = {
           }
         }
       }
+      {
+        name: 'ASPSubnet'
+        properties: {
+          addressPrefix: sub5
+           routeTable: {
+            id: rtDefault.id
+           }
+           delegations: [
+            {
+              name: 'Microsoft.Web/serverFarms'
+              properties: {
+                serviceName: 'Microsoft.Web/serverFarms'
+              }
+            }
+          ]
+        }
+      }
     ]
   }
 }
+
 
 output net string = virtualNetwork.id
 output rt string = rtDefault.name
