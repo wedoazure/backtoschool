@@ -30,6 +30,21 @@ module vnetMDL 'Modules/network.bicep' = {
   }
 }
 
+module vngMDL 'Modules/vng.bicep' = {
+  name: 'vng-deploy'
+  dependsOn: [
+    vnetMDL
+  ]
+  params: {
+    vnetName: vnetNameFile
+    location: locationFile
+    date: dateNow
+    email: emailFile
+    service: serviceFile
+    vnet: vnetMDL.outputs.net
+  }
+}
+
 module bstMDL 'Modules/bastion.bicep' = {
   name: 'bst-deploy'
   dependsOn: [

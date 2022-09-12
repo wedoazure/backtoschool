@@ -15,6 +15,7 @@ var sub2 = '${mask1}.${mask2}.1.0/24'
 var sub3 = '${mask1}.${mask2}.255.0/24'
 var sub4 = '${mask1}.${mask2}.254.0/24'
 var sub5 = '${mask1}.${mask2}.123.0/24'
+var sub6 = '${mask1}.${mask2}.222.0/24'
 
 
 resource rtDefault 'Microsoft.Network/routeTables@2021-02-01' = {
@@ -52,6 +53,12 @@ resource virtualNetwork 'Microsoft.Network/virtualNetworks@2021-02-01' = {
       ]
     }
     subnets: [
+      {
+        name: 'GatewaySubnet'
+        properties: {
+          addressPrefix: sub6
+        }
+      }
       {
         name: 'WindowsSubnet'
         properties: {
