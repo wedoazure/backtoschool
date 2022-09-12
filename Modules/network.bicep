@@ -79,6 +79,9 @@ resource virtualNetwork 'Microsoft.Network/virtualNetworks@2021-02-01' = {
         name: 'QuaggaSubnet'
         properties: {
           addressPrefix: sub2
+          networkSecurityGroup: {
+            id: nsgDefault.id
+          }
         }
       }
       {

@@ -118,3 +118,8 @@ systemctl enable bgpd.service
 echo "start zebra and quagga daemons"
 systemctl start zebra 
 systemctl start bgpd  
+
+echo "Quagga installation should be complete"
+echo "show me some routes"
+vtysh -c "show ip bgp"
+
