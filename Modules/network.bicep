@@ -60,7 +60,7 @@ resource virtualNetwork 'Microsoft.Network/virtualNetworks@2021-02-01' = {
         }
       }
       {
-        name: 'WindowsSubnet'
+        name: 'QuaggaSubnet'
         properties: {
           addressPrefix: sub2
           routeTable: {

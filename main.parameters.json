@@ -19,6 +19,12 @@
         },
         "monNameFile": {
             "value": "b2smon2022"
+        },
+        "admNameFile": {
+            "value": "wdaadmin"
+        },
+        "vmPasswordFile": {
+            "value": "B@ck2Sch00l..l00hcS2kcaB@"
         }
 
     }

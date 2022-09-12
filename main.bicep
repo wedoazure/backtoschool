@@ -5,6 +5,8 @@ param emailFile string
 param vnetAddressPrefixFile string
 param monNameFile string
 param serviceFile string
+param admNameFile string
+param vmPasswordFile string
 
 module monMDL 'Modules/monitor.bicep' = {
   name: 'mon-deploy'
@@ -30,20 +32,20 @@ module vnetMDL 'Modules/network.bicep' = {
   }
 }
 
-module vngMDL 'Modules/vng.bicep' = {
-  name: 'vng-deploy'
-  dependsOn: [
-    vnetMDL
-  ]
+module qugMDL 'Modules/quagga.bicep' = {
+  name: 'quagga-deploy'
   params: {
-    vnetName: vnetNameFile
     location: locationFile
     date: dateNow
     email: emailFile
     service: serviceFile
     vnet: vnetMDL.outputs.net
+    vnetName: vnetNameFile
+    admName: admNameFile
+    vmPassword: vmPasswordFile
   }
 }
+
 
 module bstMDL 'Modules/bastion.bicep' = {
   name: 'bst-deploy'
