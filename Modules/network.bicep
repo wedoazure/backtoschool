@@ -38,6 +38,22 @@ resource nsgDefault 'Microsoft.Network/networkSecurityGroups@2021-02-01' = {
   }
 }
 
+resource nsgSSHRule 'Microsoft.Network/networkSecurityGroups/securityRules@2021-02-01' = {
+  name: '${vnetName}-default-nsg-SSHRule'
+  parent: nsgDefault
+  properties: {
+    access: 'Allow'
+    description: 'Allow SSH'
+    destinationAddressPrefix: '*'
+    destinationPortRange: '22'
+    direction: 'Inbound'
+    priority: 105
+    protocol: 'Tcp'
+    sourceAddressPrefix: '*'
+    sourcePortRange: '*'
+  }
+}
+
 resource virtualNetwork 'Microsoft.Network/virtualNetworks@2021-02-01' = {
   name: vnetName
   location: location
