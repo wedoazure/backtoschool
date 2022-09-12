@@ -7,10 +7,11 @@ param vnet string
 @secure()
 param vmPassword string
 param admName string
+param vmSize string
 
 var vmName = '${vnetName}-qga'
 var subId = '${vnet}/subnets/QuaggaSubnet'
-var vmSize = 'Standard_D2S_v5'
+
 
 resource qgaNic 'Microsoft.Network/networkInterfaces@2022-01-01' = {
   name: '${vmName}-nic01'

@@ -25,6 +25,9 @@
         },
         "vmPasswordFile": {
             "value": "B@ck2Sch00l..l00hcS2kcaB@"
+        },
+        "vmSizeFile": {
+            "value": "Standard_D2s_v5"
         }
 
     }

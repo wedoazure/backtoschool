@@ -6,7 +6,9 @@ param vnetAddressPrefixFile string
 param monNameFile string
 param serviceFile string
 param admNameFile string
+@secure()
 param vmPasswordFile string
+param vmSizeFile string
 
 module monMDL 'Modules/monitor.bicep' = {
   name: 'mon-deploy'
@@ -43,6 +45,7 @@ module qugMDL 'Modules/quagga.bicep' = {
     vnetName: vnetNameFile
     admName: admNameFile
     vmPassword: vmPasswordFile
+    vmSize: vmSizeFile
   }
 }
 
