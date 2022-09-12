@@ -5,11 +5,9 @@ This repo contains [Azure Back to School](https://azurebacktoschool.github.io/) 
 
 ## Quagga config
 Configure Quagga virtual machine
-If you are on a Mac or Linux machine, open a Bash prompt. If you are on a Windows machine, open a PowerShell prompt.
+Use Azure Bastion to connect with the admin details in the params file.
 
-At your prompt, open an SSH connection to the Quagga VM using the username, password and IP address from the Quagga module. Note the IP is an output.
-
-Once logged in, enter sudo su to switch to super user to avoid errors running the script. Copy the script above "quaggadeploy.sh" and paste it into the SSH session. The script will configure the virtual machine with Quagga along with other network settings. The script has been updated to fit this repo, feel free to update it to suit your network environment before running it on the virtual machine. It will take a few minutes for the script to complete the setup.
+Once logged in, enter sudo su to switch to super user to avoid errors running the script. Copy the script above "quaggadeploy.sh" and paste it into the Bastion SSH session. The script will configure the virtual machine with Quagga along with other network settings. The script has been updated to fit this repo, feel free to update it to suit your network environment before running it on the virtual machine. It will take a few minutes for the script to complete the setup.
 
 This is derived from the [Route Server tutorial.](https://docs.microsoft.com/en-us/azure/route-server/tutorial-configure-route-server-with-quagga?WT.mc_id=AZ-MVP-5003469)
 
