@@ -13,7 +13,7 @@ var vmName = '${vnetName}-nat'
 var vmPublicIpName = '${vnetName}-nat-ip'
 var subId = '${vnet}/subnets/OutboundSubnet'
 
-resource natVMPIP 'Microsoft.Network/publicIPAddresses@2018-02-01' = {
+resource natVMPIP 'Microsoft.Network/publicIPAddresses@2022-01-01' = {
   name: vmPublicIpName
   location: location
   tags: {
