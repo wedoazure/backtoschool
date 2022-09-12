@@ -55,9 +55,6 @@ name: vmName
       adminPassword: vmPassword
       linuxConfiguration: {
         provisionVMAgent: true
-        patchSettings: {
-          patchMode: 'AutomaticByPlatform'
-        }
       }
     }
     storageProfile: {

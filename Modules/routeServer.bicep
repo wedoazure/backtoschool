@@ -9,8 +9,6 @@ var rtrName = '${vnetName}-rtr'
 var rtrPIPName = '${vnetName}-rtr-pip'
 var snetId = '${vnet}/subnets/RouteServerSubnet'
 
-//var asn = 65000
-
 resource rtrPIP 'Microsoft.Network/publicIPAddresses@2021-03-01' = {
   name: rtrPIPName
   location: location
