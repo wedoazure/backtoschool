@@ -4,6 +4,7 @@ param date string
 param email string
 param service string
 param vnet string
+param peer string
 
 var rtrName = '${vnetName}-rtr'
 var rtrPIPName = '${vnetName}-rtr-pip'
@@ -49,5 +50,14 @@ resource rtrIP  'Microsoft.Network/virtualHubs/ipConfigurations@2022-01-01' = {
     publicIPAddress: {
       id: rtrPIP.id
     }
+  }
+}
+
+resource rtrBgp 'Microsoft.Network/virtualHubs/bgpConnections@2022-01-01' = {
+  name: 'bgp1'
+  parent: rtrSrv
+  properties: {
+    peerAsn: 65000
+    peerIp: peer
   }
 }

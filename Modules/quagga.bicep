@@ -10,8 +10,24 @@ param admName string
 param vmSize string
 
 var vmName = '${vnetName}-qga'
+var qgaPIPName = '${vmName}-pip'
 var subId = '${vnet}/subnets/QuaggaSubnet'
 
+resource qgaPIP 'Microsoft.Network/publicIPAddresses@2021-03-01' = {
+  name: qgaPIPName
+  location: location
+  tags: {
+    createdDate: date
+    Owner: email
+    Service: service
+  }
+  sku: {
+    name: 'Standard'
+  }
+  properties: {
+    publicIPAllocationMethod: 'Static'
+  }
+}
 
 resource qgaNic 'Microsoft.Network/networkInterfaces@2022-01-01' = {
   name: '${vmName}-nic01'
@@ -26,7 +42,11 @@ resource qgaNic 'Microsoft.Network/networkInterfaces@2022-01-01' = {
       {
         name: 'ipConf'
         properties: {
-          privateIPAllocationMethod: 'Dynamic'
+          publicIPAddress: {
+            id: qgaPIP.id
+          }
+          privateIPAllocationMethod: 'Static'
+          privateIPAddress: '10.55.1.4'
           subnet: {
             id: subId
           }
@@ -86,3 +106,4 @@ name: vmName
 }
 
 output username string = admName
+output peer string = qgaNic.properties.ipConfigurations[0].properties.privateIPAddress
