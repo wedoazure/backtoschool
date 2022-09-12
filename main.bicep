@@ -52,6 +52,23 @@ module qugMDL 'Modules/quagga.bicep' = {
   }
 }
 
+module natVMMDL 'Modules/vm.bicep' = {
+  name: 'nat-vm-deploy'
+  dependsOn: [
+    vnetMDL
+  ]
+  params: {
+    location: locationFile
+    date: dateNow
+    email: emailFile
+    service: serviceFile
+    vnet: vnetMDL.outputs.net
+    vnetName: vnetNameFile
+    admName: admNameFile
+    vmPassword: vmPasswordFile
+    vmSize: vmSizeFile
+  }
+}
 
 module bstMDL 'Modules/bastion.bicep' = {
   name: 'bst-deploy'
