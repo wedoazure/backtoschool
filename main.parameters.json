@@ -17,9 +17,6 @@
         "vnetAddressPrefixFile": {
             "value": "10.55.0.0/16"
         },
-        "monNameFile": {
-            "value": "b2smon2022"
-        },
         "admNameFile": {
             "value": "wdaadmin"
         },

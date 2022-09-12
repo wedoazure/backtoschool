@@ -3,23 +3,12 @@ param locationFile string
 param dateNow string = utcNow('yyyy-MM-dd')
 param emailFile string
 param vnetAddressPrefixFile string
-param monNameFile string
 param serviceFile string
 param admNameFile string
 @secure()
 param vmPasswordFile string
 param vmSizeFile string
 
-module monMDL 'Modules/monitor.bicep' = {
-  name: 'mon-deploy'
-  params: {
-    location: locationFile
-    date: dateNow
-    email: emailFile
-    name: monNameFile
-    service: serviceFile
-  }
-}
 
 module vnetMDL 'Modules/network.bicep' = {
   name: 'vnet-deploy'
