@@ -36,6 +36,9 @@ module vnetMDL 'Modules/network.bicep' = {
 
 module qugMDL 'Modules/quagga.bicep' = {
   name: 'quagga-deploy'
+  dependsOn: [
+    vnetMDL
+  ]
   params: {
     location: locationFile
     date: dateNow
@@ -88,5 +91,6 @@ module rteSrvMDL 'Modules/routeServer.bicep' = {
     email: emailFile
     service: serviceFile
     vnet: vnetMDL.outputs.net
+    peer: qugMDL.outputs.peerIP
   }
 }

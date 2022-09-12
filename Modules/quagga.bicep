@@ -106,4 +106,4 @@ name: vmName
 }
 
 output username string = admName
-output peer string = qgaNic.properties.ipConfigurations[0].properties.privateIPAddress
+output peerIP string = qgaNic.properties.ipConfigurations[0].properties.privateIPAddress

@@ -57,7 +57,7 @@ resource rtrBgp 'Microsoft.Network/virtualHubs/bgpConnections@2022-01-01' = {
   name: 'bgp1'
   parent: rtrSrv
   properties: {
-    peerAsn: 65000
+    peerAsn: 65001
     peerIp: peer
   }
 }
