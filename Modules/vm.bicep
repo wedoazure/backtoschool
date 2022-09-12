@@ -10,7 +10,24 @@ param admName string
 param vmSize string
 
 var vmName = '${vnetName}-nat'
+var vmPublicIpName = '${vnetName}-nat-ip'
 var subId = '${vnet}/subnets/OutboundSubnet'
+
+resource natVMPIP 'Microsoft.Network/publicIPAddresses@2018-02-01' = {
+  name: vmPublicIpName
+  location: location
+  tags: {
+    createdDate: date
+    Owner: email
+    Service: service
+  }
+  sku: {
+    name: 'Standard'
+  }
+  properties: {
+    publicIPAllocationMethod: 'Static'
+  }
+}
 
 resource natNic 'Microsoft.Network/networkInterfaces@2022-01-01' = {
   name: '${vmName}-nic01'
@@ -25,6 +42,9 @@ resource natNic 'Microsoft.Network/networkInterfaces@2022-01-01' = {
       {
         name: 'ipConf'
         properties: {
+          publicIPAddress: {
+            id: natVMPIP.id
+          }
           privateIPAllocationMethod: 'Dynamic'
           subnet: {
             id: subId
